@@ -100,7 +100,7 @@ async function runCommands(
       );
 
       const proc = spawn(command, args, {
-        stdio: ["inherit", "pipe", "pipe"],
+        stdio: "inherit",
       });
 
       const processInfo: ProcessInfo = {
@@ -110,6 +110,8 @@ async function runCommands(
       };
       processes.push(processInfo);
 
+      // Temporarily disabled for testing - using stdio: 'inherit'
+      /*
       proc.stdout?.on("data", (data) => {
         const lines = data
           .toString()
@@ -134,6 +136,7 @@ async function runCommands(
           );
         });
       });
+      */
 
       proc.on("close", (code) => {
         _completedCount++;
