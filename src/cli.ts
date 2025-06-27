@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { cliui } from "@poppinss/cliui";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const packageJsonPath = join(__dirname, "..", "package.json");
+const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf-8"));
+const version = packageJson.version;
 
 interface RunCommandsOptions {
   killOthers: boolean;
@@ -197,6 +206,8 @@ async function runCommands(
 
 export function buildCli(argv: string[], ui: ReturnType<typeof cliui>) {
   return yargs(argv)
+    .version(version)
+    .alias("version", "V")
     .command(
       "$0 [commands..]",
       "Run multiple commands concurrently",
