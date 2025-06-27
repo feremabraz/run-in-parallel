@@ -5,7 +5,7 @@ import { cliui } from "@poppinss/cliui";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-const version = "1.0.3";
+const version = "1.0.4";
 
 interface RunCommandsOptions {
   killOthers: boolean;
@@ -24,12 +24,10 @@ function parseCommand(commandString: string): {
   command: string;
   args: string[];
 } {
-  const trimmed = commandString.trim();
-
-  if (process.platform === "win32") {
-    return { command: "cmd", args: ["/c", trimmed] };
-  }
-  return { command: "sh", args: ["-c", trimmed] };
+  const parts = commandString.trim().split(/\s+/);
+  const command = parts[0];
+  const args = parts.slice(1);
+  return { command, args };
 }
 
 function formatTimestamp(): string {
