@@ -1,13 +1,13 @@
 {
-  "name": "cli-executable-publishable",
-  "version": "1.1.0",
-  "description": "A template for creating a TypeScript CLI with cliui, yargs, and prompts, runnable directly with Node.js.",
+  "name": "run-in-parallel",
+  "version": "1.0.0",
+  "description": "A modern CLI to run multiple commands concurrently with beautiful output",
   "author": "Fernando Braz <hello@fernandobraz.online> (https://fernandobraz.online/)",
   "license": "MIT",
   "type": "module",
   "main": "src/cli.ts",
   "bin": {
-    "cli-executable-publishable": "src/cli.ts"
+    "run-in-parallel": "src/cli.ts"
   },
   "files": [
     "src"
@@ -45,12 +45,14 @@
   },
   "keywords": [
     "cli",
-    "publish",
-    "npm",
+    "concurrent",
+    "parallel",
+    "commands",
     "typescript",
     "cliui",
     "yargs",
-    "prompts"
+    "concurrently",
+    "process-management"
   ],
   "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }
