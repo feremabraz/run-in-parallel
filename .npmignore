@@ -1,0 +1,8 @@
+.husky
+pnpm-lock.yaml
+assets
+*.tgz
+biome.json
+coverage
+vitest.config.js
+__tests__

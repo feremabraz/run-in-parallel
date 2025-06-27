@@ -1,0 +1,56 @@
+{
+  "name": "cli-executable-publishable",
+  "version": "1.1.0",
+  "description": "A template for creating a TypeScript CLI with cliui, yargs, and prompts, runnable directly with Node.js.",
+  "author": "Fernando Braz <hello@fernandobraz.online> (https://fernandobraz.online/)",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/cli.ts",
+  "bin": {
+    "cli-executable-publishable": "src/cli.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "start": "node src/cli.ts",
+    "check": "pnpm run check:format && pnpm run check:lint",
+    "check:format": "biome format .",
+    "check:lint": "biome check .",
+    "format": "biome format --write .",
+    "lint": "biome check --write .",
+    "prepare": "husky",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@poppinss/cliui": "^6.4.3",
+    "prompts": "^2.4.2",
+    "yargs": "^18.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.4",
+    "@types/node": "^24.0.3",
+    "@types/prompts": "^2.4.9",
+    "@types/yargs": "^17.0.33",
+    "@vitest/coverage-v8": "^3.2.4",
+    "husky": "^9.1.7",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=23.6.0",
+    "pnpm": ">=10"
+  },
+  "keywords": [
+    "cli",
+    "publish",
+    "npm",
+    "typescript",
+    "cliui",
+    "yargs",
+    "prompts"
+  ],
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
+}
