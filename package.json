@@ -1,18 +1,19 @@
 {
   "name": "@feremabraz/run-in-parallel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern CLI to run multiple commands concurrently with beautiful output",
   "author": "Fernando Braz <hello@fernandobraz.online> (https://fernandobraz.online/)",
   "license": "MIT",
   "type": "module",
-  "main": "src/cli.ts",
+  "main": "dist/cli.js",
   "bin": {
-    "run-in-parallel": "src/cli.ts"
+    "run-in-parallel": "dist/cli.js"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
+    "build": "tsc",
     "start": "node src/cli.ts",
     "check": "pnpm run check:format && pnpm run check:lint",
     "check:format": "biome format .",
@@ -20,6 +21,7 @@
     "format": "biome format --write .",
     "lint": "biome check --write .",
     "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
