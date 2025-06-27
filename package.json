@@ -1,5 +1,5 @@
 {
-  "name": "@fernandobraz/run-in-parallel",
+  "name": "@feremabraz/run-in-parallel",
   "version": "1.0.0",
   "description": "A modern CLI to run multiple commands concurrently with beautiful output",
   "author": "Fernando Braz <hello@fernandobraz.online> (https://fernandobraz.online/)",
