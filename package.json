@@ -1,6 +1,6 @@
 {
   "name": "run-in-parallel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern CLI to run multiple commands concurrently with beautiful output",
   "author": "Fernando Braz <hello@fernandobraz.online> (https://fernandobraz.online/)",
   "license": "MIT",
