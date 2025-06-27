@@ -1,18 +1,11 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { cliui } from "@poppinss/cliui";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const packageJsonPath = join(__dirname, "..", "package.json");
-const packageJson = JSON.parse(readFileSync(packageJsonPath, "utf-8"));
-const version = packageJson.version;
+const version = "1.0.3";
 
 interface RunCommandsOptions {
   killOthers: boolean;
@@ -100,7 +93,7 @@ async function runCommands(
       );
 
       const proc = spawn(command, args, {
-        stdio: "inherit",
+        stdio: ["inherit", "pipe", "pipe"],
       });
 
       const processInfo: ProcessInfo = {
@@ -110,8 +103,6 @@ async function runCommands(
       };
       processes.push(processInfo);
 
-      // Temporarily disabled for testing - using stdio: 'inherit'
-      /*
       proc.stdout?.on("data", (data) => {
         const lines = data
           .toString()
@@ -136,7 +127,6 @@ async function runCommands(
           );
         });
       });
-      */
 
       proc.on("close", (code) => {
         _completedCount++;
